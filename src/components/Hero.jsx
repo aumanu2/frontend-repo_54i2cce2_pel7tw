@@ -3,41 +3,30 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[70vh] w-full overflow-hidden bg-gradient-to-b from-black to-zinc-900">
-      <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/cb2mFOQm3xLPnK7R/scene.splinecode" style={{ width: '100%', height: '100%' }} />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-28">
-        <div className="max-w-2xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-            Connect • Automate • Optimize
-          </span>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            The operating system for modern restaurants
+    <section id="home" className="relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-indigo-50 via-transparent to-white" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 py-20 lg:py-28">
+        <div className="flex flex-col justify-center">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
+            Run your hospitality ops with confidence.
           </h1>
-          <p className="mt-6 text-lg leading-8 text-white/80">
-            Project Nexus unifies your website, ordering, POS, inventory, CRM, and finances into one intelligent platform. Real-time syncing across every channel, automated workflows, and actionable insights—out of the box.
+          <p className="mt-5 text-lg text-slate-600">
+            Project Nexus unifies POS, inventory, CRM, and analytics into one streamlined platform. Real-time insights, role-based dashboards, and blazing-fast performance.
           </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a
-              href="#get-started"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-black shadow transition hover:bg-white/90"
-            >
-              Start free trial <ArrowRight size={16} />
+          <div className="mt-8 flex items-center gap-3">
+            <a href="#cta" className="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-5 py-3 text-white font-medium shadow hover:bg-indigo-500">
+              Request a Demo
+              <ArrowRight className="h-4 w-4" />
             </a>
-            <a
-              href="#demo"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
-            >
-              Watch demo
+            <a href="#features" className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-5 py-3 text-slate-800 hover:bg-slate-50">
+              Explore Features
             </a>
           </div>
         </div>
+        <div className="h-[420px] sm:h-[520px] rounded-2xl border border-slate-200/70 bg-white shadow-sm overflow-hidden">
+          <Spline scene="https://prod.spline.design/9q1a4fYH8g3qfVqQ/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        </div>
       </div>
-
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
     </section>
   );
 }

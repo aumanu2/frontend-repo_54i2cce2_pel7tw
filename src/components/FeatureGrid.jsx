@@ -1,55 +1,55 @@
-import { Database, Layers, BarChart3, ShoppingCart, Smartphone, ShieldCheck } from 'lucide-react';
+import { Shield, Database, BarChart3, Layers, ShoppingCart, Smartphone } from 'lucide-react';
 
 const features = [
   {
+    title: 'Unified Platform',
+    desc: 'POS, CRM, inventory, and analytics connected by design.',
     icon: Layers,
-    title: 'Unified platform',
-    desc: 'One login, one data model. Website, POS, CRM, inventory, and analytics connected in real time.'
   },
   {
-    icon: ShoppingCart,
-    title: 'Omni-channel ordering',
-    desc: 'Pickup, delivery, dine-in, and third-party marketplaces all flow into a single order hub.'
-  },
-  {
-    icon: Database,
-    title: 'Single customer profile',
-    desc: 'Every interaction updates a 360° profile—preferences, spend, loyalty, and feedback.'
-  },
-  {
+    title: 'Real-time KPIs',
+    desc: 'Live dashboards show margins, labor, and promos instantly.',
     icon: BarChart3,
-    title: 'Live insights',
-    desc: 'Track sales, covers, COGS, labor, and campaign ROI from a unified dashboard.'
   },
   {
+    title: 'Secure & Compliant',
+    desc: 'Best-in-class security with audit trails and SSO.',
+    icon: Shield,
+  },
+  {
+    title: 'Inventory Control',
+    desc: 'Recipe costing, waste tracking, and vendor automation.',
+    icon: Database,
+  },
+  {
+    title: 'Modern POS',
+    desc: 'Offline-ready, fast checkouts, and flexible menus.',
+    icon: ShoppingCart,
+  },
+  {
+    title: 'Mobile First',
+    desc: 'Native-like PWA on any device for your team.',
     icon: Smartphone,
-    title: 'Mobile-first ops',
-    desc: 'Manager app for alerts, approvals, and KPIs on the go.'
   },
-  {
-    icon: ShieldCheck,
-    title: 'Enterprise-grade security',
-    desc: 'SOC 2 controls, RBAC, and encrypted payments end-to-end.'
-  }
 ];
 
 export default function FeatureGrid() {
   return (
-    <section id="modules" className="relative bg-zinc-950 py-20">
+    <section id="features" className="py-16 sm:py-24 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Connect every part of your business</h2>
-          <p className="mt-4 text-white/70">From first click to last course. Nexus keeps menus, orders, inventory, and finances perfectly in sync.</p>
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-bold text-slate-900">Built for multi-unit operators</h2>
+          <p className="mt-3 text-slate-600">Scale with confidence using a platform engineered for speed, reliability, and extensibility.</p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="group rounded-xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6 transition hover:border-white/20">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-white/10 text-white">
-                <Icon size={18} />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((f) => (
+            <div key={f.title} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="h-10 w-10 rounded-lg bg-indigo-600/10 text-indigo-600 grid place-items-center">
+                <f.icon className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">{title}</h3>
-              <p className="mt-2 text-sm text-white/70">{desc}</p>
+              <h3 className="mt-4 font-semibold text-slate-900">{f.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{f.desc}</p>
             </div>
           ))}
         </div>

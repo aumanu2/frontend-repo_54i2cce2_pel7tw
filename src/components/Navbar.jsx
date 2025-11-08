@@ -1,31 +1,30 @@
 import { useState } from 'react';
-import { Menu, X, Rocket, Shield } from 'lucide-react';
+import { Menu, X, Rocket, Github, LogIn } from 'lucide-react';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const navItems = [
-    { label: 'Platform', href: '#platform' },
-    { label: 'Modules', href: '#modules' },
-    { label: 'Analytics', href: '#analytics' },
+    { label: 'Features', href: '#features' },
+    { label: 'Dashboards', href: '#dashboards' },
     { label: 'Pricing', href: '#pricing' },
     { label: 'Docs', href: '#docs' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 backdrop-blur bg-black/40">
+    <header className="sticky top-0 z-40 w-full backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/70 border-b border-slate-200/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <a href="#" className="flex items-center gap-2 text-white">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-violet-600">
-              <Rocket size={18} className="text-white" />
+          <a href="#home" className="flex items-center gap-2 text-slate-900">
+            <div className="h-9 w-9 rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-500 grid place-items-center text-white shadow">
+              <Rocket className="h-5 w-5" />
             </div>
-            <span className="text-lg font-semibold tracking-tight">Project Nexus</span>
+            <span className="font-semibold tracking-tight">Project Nexus</span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="transition hover:text-white">
+              <a key={item.label} href={item.href} className="text-sm text-slate-700 hover:text-slate-900 transition-colors">
                 {item.label}
               </a>
             ))}
@@ -33,46 +32,51 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="#signin"
-              className="rounded-md px-4 py-2 text-sm font-medium text-white/80 hover:text-white"
+              href="#docs"
+              className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-800 hover:bg-slate-50"
             >
-              Sign in
+              <Github className="h-4 w-4" />
+              GitHub
             </a>
             <a
-              href="#get-started"
-              className="inline-flex items-center gap-2 rounded-md bg-white text-black px-4 py-2 text-sm font-semibold shadow-sm transition hover:bg-white/90"
+              href="#cta"
+              className="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-3 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500"
             >
-              <Shield size={16} /> Start free trial
+              <LogIn className="h-4 w-4" />
+              Request Demo
             </a>
           </div>
 
           <button
-            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/10"
+            aria-label="Toggle menu"
+            className="md:hidden inline-flex items-center justify-center rounded-md border border-slate-300 p-2 text-slate-700"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Toggle navigation"
           >
-            {open ? <X size={20} /> : <Menu size={20} />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
         {open && (
-          <div className="md:hidden border-t border-white/10 py-4">
-            <nav className="flex flex-col gap-3 text-sm text-white/80">
+          <div className="md:hidden pb-4">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
-                <a key={item.label} href={item.href} className="px-1 py-2 rounded hover:bg-white/5">
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-md px-3 py-2 text-slate-700 hover:bg-slate-100"
+                >
                   {item.label}
                 </a>
               ))}
-              <div className="mt-2 flex items-center gap-2">
-                <a href="#signin" className="px-3 py-2 rounded hover:bg-white/5">Sign in</a>
-                <a
-                  href="#get-started"
-                  className="flex-1 text-center rounded-md bg-white text-black px-4 py-2 text-sm font-semibold shadow-sm transition hover:bg-white/90"
-                >
-                  Start free trial
-                </a>
-              </div>
-            </nav>
+              <a
+                href="#cta"
+                className="rounded-md px-3 py-2 text-white bg-indigo-600 hover:bg-indigo-500"
+                onClick={() => setOpen(false)}
+              >
+                Request Demo
+              </a>
+            </div>
           </div>
         )}
       </div>
